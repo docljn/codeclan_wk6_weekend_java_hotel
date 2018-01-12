@@ -15,4 +15,12 @@ public class Guest {
     public Boolean getDataPermission() {
         return this.dataPermission;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDataPermission(boolean newDataPermission) {
+        this.dataPermission = newDataPermission;
+    }
 }

@@ -3,7 +3,7 @@ public class Room {
 
     private boolean accessible;
     private boolean chargeable;
-    private int capacity;
+    protected int capacity;
     private String name;
 
     public Room(String name, int capacity, boolean accessible, boolean chargeable) {

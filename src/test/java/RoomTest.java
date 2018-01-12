@@ -33,4 +33,29 @@ public class RoomTest {
     }
 
 
+    @Test
+    public void canSetName(){
+        room.setName("Number One");
+        assertEquals("Number One", room.getName());
+    }
+
+    @Test
+    public void canSetCapacity(){
+        room.setCapacity(2);
+        assertEquals(2, room.getCapacity());
+    }
+
+    @Test
+    public void canSetChargeableStatus(){
+        room.setChargeable(false);
+        assertEquals(true, room.getChargeable());
+    }
+
+    @Test
+    public void canSetAccessibleStatus(){
+        room.setAccessible(false);
+        assertEquals(true, room.getAccessible());
+    }
+
+
 }

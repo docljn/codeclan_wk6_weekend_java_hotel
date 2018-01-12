@@ -28,4 +28,20 @@ public class Room {
     public boolean getAccessible() {
         return this.accessible;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setChargeable(boolean chargeable) {
+        this.chargeable = chargeable;
+    }
+
+    public void setAccessible(boolean accessible) {
+        this.accessible = accessible;
+    }
 }

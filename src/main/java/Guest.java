@@ -20,7 +20,7 @@ public class Guest {
         this.name = name;
     }
 
-    public void setDataPermission(boolean newDataPermission) {
-        this.dataPermission = newDataPermission;
+    public void setDataPermission(boolean dataPermission) {
+        this.dataPermission = dataPermission;
     }
 }

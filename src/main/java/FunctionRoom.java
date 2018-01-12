@@ -2,8 +2,8 @@ public class FunctionRoom extends Room {
     private double price;
     private FunctionRoomSetup setup;
 
-    public FunctionRoom(String name, int capacity, boolean accessible, boolean chargeable, FunctionRoomSetup setup, double price) {
-        super(name, capacity, accessible, chargeable);
+    public FunctionRoom(String name, int maxCapacity, boolean accessible, boolean chargeable, FunctionRoomSetup setup, double price) {
+        super(name, maxCapacity, accessible, chargeable);
 
         this.setup = setup;
         this.price = price;
@@ -20,7 +20,7 @@ public class FunctionRoom extends Room {
 
     public int getCapacity() {
         int modifier = getSetup().getCapacityModifier();
-        return this.capacity * modifier / 10;
+        return this.maxCapacity * modifier / 10;
 //        CARE: calling.capacity will give the room's max capacity as set by the room at initialization
     }
 

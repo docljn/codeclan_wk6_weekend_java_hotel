@@ -4,8 +4,8 @@ public class Bedroom extends Room {
     private BedroomType type;
     private double price;
 
-    public Bedroom(String name, int capacity, boolean accessible, boolean chargeable, BedroomType type, double price) {
-        super(name, capacity, accessible, chargeable);
+    public Bedroom(String name, int maxCapacity, boolean accessible, boolean chargeable, BedroomType type, double price) {
+        super(name, maxCapacity, accessible, chargeable);
         this.type = type;
         this.price = price;
     }

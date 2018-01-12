@@ -19,7 +19,7 @@ public class RoomTest {
 
     @Test
     public void canGetCapacity(){
-        assertEquals(1, room.getCapacity());
+        assertEquals(1, room.getMaxCapacity());
     }
 
     @Test
@@ -41,8 +41,8 @@ public class RoomTest {
 
     @Test
     public void canSetCapacity(){
-        room.setCapacity(2);
-        assertEquals(2, room.getCapacity());
+        room.setMaxCapacity(2);
+        assertEquals(2, room.getMaxCapacity());
     }
 
     @Test

@@ -3,12 +3,12 @@ public class Room {
 
     private boolean accessible;
     private boolean chargeable;
-    protected int capacity;
+    protected int maxCapacity;
     private String name;
 
-    public Room(String name, int capacity, boolean accessible, boolean chargeable) {
+    public Room(String name, int maxCapacity, boolean accessible, boolean chargeable) {
         this.name = name;
-        this.capacity = capacity;
+        this.maxCapacity = maxCapacity;
         this.chargeable = chargeable;
         this.accessible = accessible;
     }
@@ -17,8 +17,8 @@ public class Room {
         return this.name;
     }
 
-    public int getCapacity() {
-        return this.capacity;
+    public int getMaxCapacity() {
+        return this.maxCapacity;
     }
 
     public boolean getChargeable() {
@@ -33,8 +33,8 @@ public class Room {
         this.name = name;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public void setMaxCapacity(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
     }
 
     public void setChargeable(boolean chargeable) {

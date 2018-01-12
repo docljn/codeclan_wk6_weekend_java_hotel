@@ -9,12 +9,28 @@ public class RoomTest {
 
     @Before
     public void before(){
-        room = new Room("One", 1, true);
+        room = new Room("One", 1, true, true);
     }
 
     @Test
     public void canGetName(){
-        assertEquals();
+        assertEquals("One", room.getName());
     }
+
+    @Test
+    public void canGetCapacity(){
+        assertEquals(1, room.getCapacity());
+    }
+
+    @Test
+    public void canGetChargeableStatus(){
+        assertEquals(true, room.getChargeable());
+    }
+
+    @Test
+    public void canGetAccessibleStatus(){
+        assertEquals(true, room.getAccessible());
+    }
+
 
 }

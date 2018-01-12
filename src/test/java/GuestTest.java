@@ -12,5 +12,17 @@ public class GuestTest {
         guest = new Guest("John", false);
     }
 
+    @Test
+    public void canGetName(){
+        assertEquals("John", guest.getName());
+    }
+
+    @Test
+    public void canGetDataProtectionStatus(){
+        assertEquals(false, guest.getDataPermission());
+    }
+
+
+
 
 }

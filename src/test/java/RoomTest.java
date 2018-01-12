@@ -48,13 +48,13 @@ public class RoomTest {
     @Test
     public void canSetChargeableStatus(){
         room.setChargeable(false);
-        assertEquals(true, room.getChargeable());
+        assertEquals(false, room.getChargeable());
     }
 
     @Test
     public void canSetAccessibleStatus(){
         room.setAccessible(false);
-        assertEquals(true, room.getAccessible());
+        assertEquals(false, room.getAccessible());
     }
 
 

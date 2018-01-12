@@ -8,12 +8,23 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        bedroom = new Bedroom("One", 1, true, true, BedroomType.SINGLE);
+        bedroom = new Bedroom("Two", 2, true, true, BedroomType.DOUBLE, 99.00);
     }
 
     @Test
     public void canGetType(){
-        assertEquals(BedroomType.SINGLE ,bedroom.getBedroomType());
+        assertEquals(BedroomType.DOUBLE ,bedroom.getBedroomType());
+    }
+
+    @Test
+    public void canGetPrice(){
+        assertEquals(99.00, bedroom.getPrice(), 0.001);
+    }
+
+    @Test
+    public void canSetPrice(){
+        bedroom.setPrice(89.00);
+        assertEquals(89.00, bedroom.getPrice(), 0.001);
     }
 
 

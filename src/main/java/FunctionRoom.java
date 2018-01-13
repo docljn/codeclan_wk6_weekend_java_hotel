@@ -19,6 +19,10 @@ public class FunctionRoom extends Room {
         this.setup = setup;
     }
 
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
     public int getCapacity() {
         int modifier = getSetup().getCapacityModifier();
         return this.maxCapacity * modifier / 10;
@@ -33,4 +37,6 @@ public class FunctionRoom extends Room {
     public void setPrice(double price) {
         this.price = price;
     }
+
+
 }

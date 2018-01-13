@@ -18,6 +18,11 @@ public class FunctionRoomTest {
     }
 
     @Test
+    public void hasMaxCapacity(){
+        assertEquals(100, functionRoom.getMaxCapacity());
+    }
+
+    @Test
     public void canSetSetup(){
         functionRoom.setSetup(FunctionRoomSetup.BOARDROOM);
         assertEquals(FunctionRoomSetup.BOARDROOM, functionRoom.getSetup());

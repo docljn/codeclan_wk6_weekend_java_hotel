@@ -9,7 +9,7 @@ public class DiningRoomTest {
 
     @Before
     public void before(){
-        room = new DiningRoom("Dining Room", true, false, 50, 10);
+        room = new DiningRoom("Dining Room", true, false, 200, 50, 10);
     }
 
     @Test

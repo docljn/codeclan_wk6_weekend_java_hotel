@@ -3,11 +3,10 @@ public class FunctionRoom extends Room {
     private double price;
     private FunctionRoomSetup setup;
 
-    public FunctionRoom(String name, boolean accessible, boolean chargeable, int maxCapacity, double price) {
-        super(name, accessible, chargeable);
+    public FunctionRoom(String name, boolean accessible, boolean chargeable, double price, int maxCapacity) {
+        super(name, accessible, chargeable, price);
         this.maxCapacity = maxCapacity;
         this.setup = FunctionRoomSetup.THEATER;
-        this.price = price;
     }
 
     public FunctionRoomSetup getSetup() {
@@ -28,18 +27,6 @@ public class FunctionRoom extends Room {
         return this.maxCapacity * modifier / 10;
     }
 
-
-    public double getPrice() {
-        if (this.getChargeable() == false) {
-            return 0.00;
-        } else {
-            return this.price;
-        }
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
 
 }

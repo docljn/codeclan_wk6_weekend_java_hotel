@@ -8,7 +8,7 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        bedroom = new Bedroom("Two", true, true, BedroomType.DOUBLE, 99.00);
+        bedroom = new Bedroom("Two", true, true, 99.00, BedroomType.DOUBLE);
     }
 
     @Test
@@ -17,21 +17,12 @@ public class BedroomTest {
     }
 
     @Test
-    public void canGetMaxCapacity(){
-        bedroom.getMaxCapacity();
-        assertEquals(2, bedroom.getMaxCapacity());
+    public void canGetCapacity(){
+        bedroom.getCapacity();
+        assertEquals(2, bedroom.getCapacity());
     }
 
-    @Test
-    public void canGetPrice(){
-        assertEquals(99.00, bedroom.getPrice(), 0.001);
-    }
 
-    @Test
-    public void canSetPrice(){
-        bedroom.setPrice(89.00);
-        assertEquals(89.00, bedroom.getPrice(), 0.001);
-    }
 
 
 }

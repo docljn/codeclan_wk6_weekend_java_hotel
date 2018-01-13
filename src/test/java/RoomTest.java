@@ -9,7 +9,7 @@ public class RoomTest {
 
     @Before
     public void before(){
-        room = new Room("One", true, true);
+        room = new Room("One", true, true, 99.00);
     }
 
     @Test
@@ -46,6 +46,23 @@ public class RoomTest {
     public void canSetAccessibleStatus(){
         room.setAccessible(false);
         assertEquals(false, room.getAccessible());
+    }
+
+    @Test
+    public void canGetPrice(){
+        assertEquals(99.00, room.getPrice(), 0.001);
+    }
+
+    @Test
+    public void canSetPrice(){
+        room.setPrice(89.00);
+        assertEquals(89.00, room.getPrice(), 0.001);
+    }
+
+    @Test
+    public void roomPriceIsZeroIfNotChargeable(){
+        room.setChargeable(false);
+        assertEquals(0.00, room.getPrice(), 0.001);
     }
 
 

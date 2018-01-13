@@ -3,8 +3,8 @@ public class DiningRoom extends Room {
     private final int tableCount;
 
 
-    public DiningRoom(String name, boolean accessible, boolean chargeable, int maxCapacity, int tableCount) {
-        super(name, accessible, chargeable);
+    public DiningRoom(String name, boolean accessible, boolean chargeable, int price, int maxCapacity, int tableCount) {
+        super(name, accessible, chargeable, price);
         this.maxCapacity = maxCapacity;
         this.tableCount = tableCount;
     }

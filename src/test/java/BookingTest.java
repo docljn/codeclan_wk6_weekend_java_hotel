@@ -30,30 +30,66 @@ public class BookingTest {
     }
 
     @Test
-    public void bookingAcceptsGuest(){
+    public void bookingAddsGuest(){
         booking.addGuest(guest);
         assertEquals(1, booking.getGuests().size());
         assertEquals("Kat", booking.getGuests().get(0).getName());
     }
 
     @Test
-    public void bookingAcceptsRoom(){
+    public void bookingRemovesGuest(){
+        booking.addGuest(guest);
+        booking.removeGuest(guest);
+        assertEquals(0, booking.getGuests().size());
+    }
+
+    @Test
+    public void bookingAddsRoom(){
         booking.addRoom(room);
         assertEquals(1, booking.getRooms().size());
         assertEquals(room, booking.getRooms().get(0));
     }
 
     @Test
-    public void bookingAcceptsRequirement(){
+    public void bookingRemovesRoom(){
+        booking.addRoom(room);
+        booking.removeRoom(room);
+        assertEquals(0, booking.getRooms().size());
+    }
+
+    @Test
+    public void bookingAddsRequirement(){
         booking.addRequirement(Requirement.WAKE_UP_CALL);
         assertEquals(1, booking.getRequirements().size());
         assertEquals(Requirement.WAKE_UP_CALL, booking.getRequirements().get(0));
     }
 
     @Test
-    public void bookingAcceptsCharge(){
-        booking.charge(room.getPrice());
+    public void bookingRemovesRequirement(){
+        booking.addRequirement(Requirement.WAKE_UP_CALL);
+        booking.removeRequirement(Requirement.WAKE_UP_CALL);
+        assertEquals(0, booking.getRequirements().size());
+    }
+
+    @Test
+    public void bookingAddsCharge(){
+        booking.addCharge(room.getPrice());
         assertEquals(49.50, booking.getCost(), 0.001);
+    }
+
+    @Test
+    public void bookingCostCannotGoNegative(){
+        booking.addCharge(100);
+        booking.addCharge(-200);
+        assertEquals(0.00, booking.getCost(), 0.001);
+    }
+
+    
+
+    @Test
+    public void bookingCanBeCompleted(){
+        booking.complete();
+        assertEquals(true, booking.getCompleted());
     }
 
 

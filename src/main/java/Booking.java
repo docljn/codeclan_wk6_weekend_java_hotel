@@ -1,8 +1,6 @@
 import java.sql.Date;
 import java.util.ArrayList;
 
-import static jdk.nashorn.internal.objects.NativeDate.valueOf;
-
 public class Booking {
 
     private ArrayList<Guest> guests;
@@ -56,21 +54,54 @@ public class Booking {
         return this.completed;
     }
 
+
     public void addGuest(Guest guest) {
         this.guests.add(guest);
     }
+
+    public void removeGuest(Guest guest) {
+        this.guests.remove(guest);
+    }
+
 
     public void addRoom(Room room) {
         this.rooms.add(room);
     }
 
+    public void removeRoom(Bedroom room) {
+        this.rooms.remove(room);
+    }
+
+
+
     public void addRequirement(Requirement requirement) {
         this.requirements.add(requirement);
     }
 
-    public void charge(double amount) {
-        this.cost = this.cost + amount;
+    public void removeRequirement(Requirement requirement) {
+        this.requirements.remove(requirement);
     }
+
+    public void addCharge(double amount) {
+        this.cost = this.cost + amount;
+        if(this.cost < 0) {
+            this.cost = 0.00;
+        }
+    }
+
+    public void complete() {
+        /*
+        add logic to check that:
+            everything has been paid
+            all guests have checked out
+            departure date is today or past (or allow departure date to be changed?)
+        */
+        this.completed = true;
+
+    }
+
+
+
 //    having trouble with dates: https://www.ntu.edu.sg/home/ehchua/programming/java/DateTimeCalendar.html
 
 //    to convert a string to a date: date = valueOf("yyyy-mm-dd")

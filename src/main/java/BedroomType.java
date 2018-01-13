@@ -5,7 +5,7 @@ public enum BedroomType {
     SINGLE(1),
     DOUBLE(2),
     FAMILY(4),
-    SUITE(2);
+    SUITE (4);
 
 
     private final int capacity;

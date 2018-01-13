@@ -1,10 +1,11 @@
 public class FunctionRoom extends Room {
+    private final int maxCapacity;
     private double price;
     private FunctionRoomSetup setup;
 
-    public FunctionRoom(String name, int maxCapacity, boolean accessible, boolean chargeable, FunctionRoomSetup setup, double price) {
-        super(name, maxCapacity, accessible, chargeable);
-
+    public FunctionRoom(String name, boolean accessible, boolean chargeable, int maxCapacity, FunctionRoomSetup setup, double price) {
+        super(name, accessible, chargeable);
+        this.maxCapacity = maxCapacity;
         this.setup = setup;
         this.price = price;
     }

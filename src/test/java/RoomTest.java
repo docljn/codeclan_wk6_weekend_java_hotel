@@ -9,7 +9,7 @@ public class RoomTest {
 
     @Before
     public void before(){
-        room = new Room("One", 1, true, true);
+        room = new Room("One", true, true);
     }
 
     @Test
@@ -17,10 +17,6 @@ public class RoomTest {
         assertEquals("One", room.getName());
     }
 
-    @Test
-    public void canGetCapacity(){
-        assertEquals(1, room.getMaxCapacity());
-    }
 
     @Test
     public void canGetChargeableStatus(){
@@ -39,11 +35,6 @@ public class RoomTest {
         assertEquals("Number One", room.getName());
     }
 
-    @Test
-    public void canSetCapacity(){
-        room.setMaxCapacity(2);
-        assertEquals(2, room.getMaxCapacity());
-    }
 
     @Test
     public void canSetChargeableStatus(){

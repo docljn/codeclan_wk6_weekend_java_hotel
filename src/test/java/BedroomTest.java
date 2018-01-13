@@ -8,12 +8,18 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        bedroom = new Bedroom("Two", 2, true, true, BedroomType.DOUBLE, 99.00);
+        bedroom = new Bedroom("Two", true, true, BedroomType.DOUBLE, 99.00);
     }
 
     @Test
     public void canGetType(){
         assertEquals(BedroomType.DOUBLE ,bedroom.getBedroomType());
+    }
+
+    @Test
+    public void canGetMaxCapacity(){
+        bedroom.getMaxCapacity();
+        assertEquals(2, bedroom.getMaxCapacity());
     }
 
     @Test

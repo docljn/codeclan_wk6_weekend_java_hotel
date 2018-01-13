@@ -10,10 +10,11 @@ public class Booking {
     private ArrayList<Requirement> requirements;
     private double cost;
     private boolean completed;
+    private final int reference;
 
 
-    public Booking(){
-
+    public Booking(int reference){
+        this.reference = reference;
         this.guests = new ArrayList<>();
         this.rooms = new ArrayList<>();
 //        this.room_allocation = new HashMap<Room, ArrayList<Guest>>();
@@ -26,6 +27,10 @@ public class Booking {
 
 //    how to get a current date: https://stackoverflow.com/questions/18257648/get-the-current-date-in-java-sql-date-format
 
+    public int getReference() {
+        return this.reference;
+    }
+
     public ArrayList<Guest> getGuests() {
         return this.guests;
     }
@@ -34,7 +39,7 @@ public class Booking {
         return this.rooms;
     }
 
-    public Object getArrivalDate() {
+    public Date getArrivalDate() {
         return this.arrivalDate;
     }
 
@@ -99,6 +104,11 @@ public class Booking {
         this.completed = true;
 
     }
+
+    public int getRoomCount() {
+        return this.rooms.size();
+    }
+
 
 
 

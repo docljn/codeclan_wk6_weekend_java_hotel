@@ -12,14 +12,15 @@ public class BookingTest {
 
     @Before
     public void before(){
-        booking = new Booking();
+        booking = new Booking(1);
         guest = new Guest("Kat", true);
-        room = new Bedroom("1", true, true, BedroomType.SINGLE, 49.50);
+        room = new Bedroom("1", true, true, 49.50, BedroomType.SINGLE);
     }
 
 
     @Test
-    public void bookingStartsEmpty(){
+    public void bookingStartsEmptyWithReference(){
+        assertEquals(1, booking.getReference());
         assertEquals(0, booking.getGuests().size());
         assertEquals(0, booking.getRooms().size());
         assertEquals(null, booking.getArrivalDate());
@@ -54,7 +55,7 @@ public class BookingTest {
     public void bookingRemovesRoom(){
         booking.addRoom(room);
         booking.removeRoom(room);
-        assertEquals(0, booking.getRooms().size());
+        assertEquals(0, booking.getRoomCount());
     }
 
     @Test
@@ -89,6 +90,8 @@ public class BookingTest {
         booking.complete();
         assertEquals(true, booking.getCompleted());
     }
+
+
 
 
 }

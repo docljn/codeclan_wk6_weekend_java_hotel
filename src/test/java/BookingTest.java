@@ -84,8 +84,6 @@ public class BookingTest {
         assertEquals(0.00, booking.getCost(), 0.001);
     }
 
-    
-
     @Test
     public void bookingCanBeCompleted(){
         booking.complete();

@@ -40,6 +40,12 @@ public class FunctionRoomTest {
     }
 
     @Test
+    public void roomPriceIsZeroIfNotChargeable(){
+        functionRoom.setChargeable(false);
+        assertEquals(0.00, functionRoom.getPrice(), 0.001);
+    }
+
+    @Test
     public void canSetPrice(){
         functionRoom.setPrice(89.00);
         assertEquals(89.00, functionRoom.getPrice(), 0.001);

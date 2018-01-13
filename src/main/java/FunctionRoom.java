@@ -30,7 +30,11 @@ public class FunctionRoom extends Room {
 
 
     public double getPrice() {
-        return this.price;
+        if (this.getChargeable() == false) {
+            return 0.00;
+        } else {
+            return this.price;
+        }
     }
 
     public void setPrice(double price) {

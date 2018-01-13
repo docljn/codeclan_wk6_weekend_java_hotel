@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RoomTest {
 
-    Room room;
+    private Room room;
 
     @Before
     public void before(){

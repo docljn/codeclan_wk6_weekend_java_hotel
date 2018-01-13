@@ -36,3 +36,9 @@ public class Room {
         this.accessible = accessible;
     }
 }
+
+/*
+I would like to make chargeable the default, and not have to set it at initialization
+but how then to use new Room to make a room using information from a database?
+Additionally, would you use chargeable to ensure that a booking price didn't include the room price?
+*/

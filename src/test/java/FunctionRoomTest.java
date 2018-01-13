@@ -9,7 +9,7 @@ public class FunctionRoomTest {
 
     @Before
     public void before(){
-        functionRoom = new FunctionRoom("Large",  true, true, 100, FunctionRoomSetup.THEATER, 400);
+        functionRoom = new FunctionRoom("Large",  true, true, 100, 400);
     }
 
     @Test
@@ -18,14 +18,14 @@ public class FunctionRoomTest {
     }
 
     @Test
-    public void canSetType(){
-        functionRoom.setType(FunctionRoomSetup.BOARDROOM);
+    public void canSetSetup(){
+        functionRoom.setSetup(FunctionRoomSetup.BOARDROOM);
         assertEquals(FunctionRoomSetup.BOARDROOM, functionRoom.getSetup());
     }
 
     @Test
     public void capacityChangedByType(){
-        functionRoom.setType(FunctionRoomSetup.BOARDROOM);
+        functionRoom.setSetup(FunctionRoomSetup.BOARDROOM);
         assertEquals(30, functionRoom.getCapacity());
     }
 

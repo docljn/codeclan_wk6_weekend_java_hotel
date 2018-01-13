@@ -26,7 +26,6 @@ public class FunctionRoom extends Room {
     public int getCapacity() {
         int modifier = getSetup().getCapacityModifier();
         return this.maxCapacity * modifier / 10;
-//        CARE: calling.capacity will give the room's max capacity as set by the room at initialization
     }
 
 

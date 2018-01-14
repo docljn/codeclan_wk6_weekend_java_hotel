@@ -72,7 +72,7 @@ public class Booking {
     }
 
 
-    public void addGuest(Guest guest) {
+    public void add(Guest guest) {
         this.guests.add(guest);
     }
 
@@ -81,7 +81,7 @@ public class Booking {
     }
 
 
-    public void addRoom(Room room) {
+    public void add(Room room) {
         this.rooms.add(room);
     }
 
@@ -90,7 +90,7 @@ public class Booking {
     }
 
 
-    public void addRequirement(Requirement requirement) {
+    public void add(Requirement requirement) {
         this.requirements.add(requirement);
     }
 
@@ -98,7 +98,7 @@ public class Booking {
         this.requirements.remove(requirement);
     }
 
-    public void addCharge(double amount) {
+    public void add(double amount) {
         this.cost = this.cost + amount;
         if(this.cost < 0) {
             this.cost = 0.00;
@@ -132,7 +132,7 @@ public class Booking {
         return DateTimeFormatter.ofPattern("uuuu-MM-dd", Locale.ENGLISH);
     }
 
-    public void addStartDate(String startDate) {
+    public void add(String startDate) {
         this.startDate = LocalDate.parse(startDate, dateFormatter());
     }
 
@@ -142,7 +142,7 @@ public class Booking {
         return Period.between(startDate, endDate).getDays();
     }
 
-    public void addDuration(int numberOfNights) {
+    public void add(int numberOfNights) {
         this.endDate = this.startDate.plusDays(numberOfNights);
     }
 

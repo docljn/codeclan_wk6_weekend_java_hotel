@@ -34,56 +34,56 @@ public class BookingTest {
 
     @Test
     public void bookingAddsGuest(){
-        booking.addGuest(guest);
+        booking.add(guest);
         assertEquals(1, booking.getGuests().size());
         assertEquals("Kat", booking.getGuests().get(0).getName());
     }
 
     @Test
     public void bookingRemovesGuest(){
-        booking.addGuest(guest);
+        booking.add(guest);
         booking.removeGuest(guest);
         assertEquals(0, booking.getGuests().size());
     }
 
     @Test
     public void bookingAddsRoom(){
-        booking.addRoom(room);
+        booking.add(room);
         assertEquals(1, booking.getRooms().size());
         assertEquals(room, booking.getRooms().get(0));
     }
 
     @Test
     public void bookingRemovesRoom(){
-        booking.addRoom(room);
+        booking.add(room);
         booking.removeRoom(room);
         assertEquals(0, booking.getRoomCount());
     }
 
     @Test
     public void bookingAddsRequirement(){
-        booking.addRequirement(Requirement.WAKE_UP_CALL);
+        booking.add(Requirement.WAKE_UP_CALL);
         assertEquals(1, booking.getRequirements().size());
         assertEquals(Requirement.WAKE_UP_CALL, booking.getRequirements().get(0));
     }
 
     @Test
     public void bookingRemovesRequirement(){
-        booking.addRequirement(Requirement.WAKE_UP_CALL);
+        booking.add(Requirement.WAKE_UP_CALL);
         booking.removeRequirement(Requirement.WAKE_UP_CALL);
         assertEquals(0, booking.getRequirements().size());
     }
 
     @Test
     public void bookingAddsCharge(){
-        booking.addCharge(room.getPrice());
+        booking.add(room.getPrice());
         assertEquals(49.50, booking.getCost(), 0.001);
     }
 
     @Test
     public void bookingCostCannotGoNegative(){
-        booking.addCharge(100);
-        booking.addCharge(-200);
+        booking.add(100.00);
+        booking.add(-200.00);
         assertEquals(0.00, booking.getCost(), 0.001);
     }
 
@@ -103,23 +103,23 @@ public class BookingTest {
 
     @Test
     public void bookingCanAddStartDate(){
-        booking.addStartDate("2018-01-14");
+        booking.add("2018-01-14");
         assertEquals("2018-01-14", booking.getStartDate().toString());
 
     }
 
     @Test
     public void bookingCanAddDuration(){
-        booking.addStartDate("2018-01-14");
-        booking.addDuration(1);
+        booking.add("2018-01-14");
+        booking.add(1);
          assertEquals("2018-01-15", booking.getEndDate().toString());
 
     }
 
     @Test
     public void bookingReturnsLengthOfBooking(){
-        booking.addStartDate("2018-01-14");
-         booking.addDuration(2);
+        booking.add("2018-01-14");
+         booking.add(2);
          assertEquals(2, booking.getDuration());
 
     }

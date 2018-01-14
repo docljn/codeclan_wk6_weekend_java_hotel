@@ -73,9 +73,10 @@ public class Hotel {
         return getFunctionRooms().size();
     }
 
-    public void newBooking(int reference) {
+    public Booking newBooking(int reference) {
         Booking booking = new Booking(reference);
         this.bookings.add(booking);
+        return booking;
     }
 
     public Booking selectBooking(int reference) {
@@ -92,29 +93,31 @@ public class Hotel {
     }
 
     public ArrayList<Room> getOccupiedRooms() {
+    //     maybe add logic to ignore any bookings which have been marked as cancelled
+    //     also need to think about taking in a date field when searching, if this was actually going to work!
         ArrayList<Room> occupiedRooms = new ArrayList<>();
         for (Booking booking: getBookings()){
-            for (Room room: booking.getRooms()) {
-                occupiedRooms.add(room);
+                occupiedRooms.addAll(booking.getRooms());
             }
-        }
         return occupiedRooms;
     }
 
     public ArrayList<Room> getVacantRooms() {
         ArrayList<Room> vacantRooms = new ArrayList<>();
-        for (Room room: bedrooms) {
-            vacantRooms.add(room);
-        }
-        for (Room room: diningRooms) {
-            vacantRooms.add(room);
-        }
-        for (Room room: functionRooms) {
-            vacantRooms.add(room);
-        }
+        vacantRooms.addAll(bedrooms);
+        vacantRooms.addAll(diningRooms);
+        vacantRooms.addAll(functionRooms);
         for (Room room: getOccupiedRooms()) {
                 vacantRooms.remove(room);
             }
         return vacantRooms;
+    }
+
+    public void checkIn(Guest guest) {
+        for (Booking booking: bookings) {
+            if (booking.includesGuest(guest)){
+                booking.activate();
+            }
+        }
     }
 }

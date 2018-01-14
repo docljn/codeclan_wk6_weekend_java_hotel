@@ -2,7 +2,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
@@ -18,6 +17,7 @@ public class HotelTest {
     private DiningRoom diningRoom;
     private FunctionRoom functionRoom;
     private ArrayList<FunctionRoom> functionRooms;
+    private Guest guest;
 
     @Before
     public void before(){
@@ -32,6 +32,8 @@ public class HotelTest {
         functionRooms = new ArrayList<>();
         functionRooms.add(functionRoom);
         hotel = new Hotel("CodeClan Towers", bedRooms, diningRooms, functionRooms);
+
+        guest = new Guest("Name", true);
     }
 
     @Test
@@ -114,47 +116,50 @@ public class HotelTest {
 
     @Test
     public void canAmendBookingGuests(){
-        hotel.newBooking(1);
-        hotel.selectBooking(1).add(new Guest("Jim", false));
+        Booking booking = hotel.newBooking(1);
+        booking.add(new Guest("Jim", false));
         assertEquals(1, hotel.selectBooking(1).getGuestCount());
     }
 
     @Test
     public void canGetOccupiedRooms(){
-        hotel.newBooking(1);
-        hotel.selectBooking(1).add(doubleRoom);
+        Booking booking = hotel.newBooking(1);
+        booking.add(doubleRoom);
         ArrayList<Room> occupied = hotel.getOccupiedRooms();
         assertEquals(doubleRoom, occupied.get(0));
     }
 
     @Test
     public void canGetVacantRooms(){
-        hotel.newBooking(1);
-        hotel.selectBooking(1).add(doubleRoom);
-        hotel.selectBooking(1).add(singleRoom);
-        hotel.selectBooking(1).add(functionRoom);
+        Booking booking = hotel.newBooking(1);
+        booking.add(doubleRoom);
+        booking.add(singleRoom);
+        booking.add(functionRoom);
         ArrayList<Room> vacant = hotel.getVacantRooms();
         assertEquals(diningRoom, vacant.get(0));
     }
 
 
-
-
-    
-    @Ignore("not ready yet") @Test
-    public void newBookingRequiresVacantRoom(){
-        assertEquals(1, 1);
-    }
-
-    @Ignore("not ready yet") @Test
+    @Test
     public void canCheckInGuests(){
-        assertEquals(1, 1);
+        Booking booking = hotel.newBooking(1);
+        booking.add(guest);
+        hotel.checkIn(guest);
+        assertEquals(true, booking.getActive());
     }
 
     @Ignore("not ready yet") @Test
     public void canCheckOutGuests(){
         assertEquals(1, 1);
     }
+
+
+    @Ignore("not ready yet") @Test
+    public void newBookingRequiresVacantRoom(){
+        assertEquals(1, 1);
+    }
+
+
 
 
     @Ignore("cancel not ready yet") @Test

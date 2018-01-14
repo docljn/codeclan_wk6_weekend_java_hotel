@@ -15,6 +15,7 @@ public class Booking {
     private ArrayList<Requirement> requirements;
     private double cost;
 //    to do: change active, completed etc to an enum called status.
+
     private boolean active;
     private boolean completed;
     private final int reference;
@@ -151,7 +152,9 @@ public class Booking {
         this.endDate = this.startDate.plusDays(numberOfNights);
     }
 
-
+    public boolean includesGuest(Guest guest) {
+        return this.guests.contains(guest);
+    }
 
 
 //    having trouble with dates: https://www.ntu.edu.sg/home/ehchua/programming/java/DateTimeCalendar.html

@@ -126,8 +126,14 @@ public class BookingTest {
         booking.add("2018-01-14");
          booking.add(2);
          assertEquals(2, booking.getDuration());
-
     }
+
+    @Test
+    public void bookingCanBeSearchedByGuest(){
+        booking.add(guest);
+        assertEquals(true, booking.includesGuest(guest));
+    }
+
 
 
 //    @Test

@@ -109,8 +109,9 @@ public class BookingTest {
     }
 
     @Test
-    public void bookingCanAddEnd(){
-         booking.addEndDate("2018-01-15");
+    public void bookingCanAddDuration(){
+        booking.addStartDate("2018-01-14");
+        booking.addDuration(1);
          assertEquals("2018-01-15", booking.getEndDate().toString());
 
     }
@@ -118,8 +119,8 @@ public class BookingTest {
     @Test
     public void bookingReturnsLengthOfBooking(){
         booking.addStartDate("2018-01-14");
-         booking.addEndDate("2018-01-15");
-         assertEquals(1, booking.getNights());
+         booking.addDuration(2);
+         assertEquals(2, booking.getDuration());
 
     }
 

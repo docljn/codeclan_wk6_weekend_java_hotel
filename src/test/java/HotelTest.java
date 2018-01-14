@@ -113,8 +113,15 @@ public class HotelTest {
 
 
 
+
+
+
+
+
     @Ignore("not ready yet") @Test
     public void canAmendBookingGuests(){
+        hotel.newBooking(1);
+//        add()
         assertEquals(1, 1);
     }
 

@@ -127,6 +127,7 @@ public class Booking {
     }
 
 //    extract into helper class?
+    // https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
     public DateTimeFormatter dateFormatter (){
         return DateTimeFormatter.ofPattern("uuuu-MM-dd", Locale.ENGLISH);
     }
@@ -135,14 +136,14 @@ public class Booking {
         this.startDate = LocalDate.parse(startDate, dateFormatter());
     }
 
-    public void addEndDate(String endDate) {
-        this.endDate = LocalDate.parse(endDate, dateFormatter());
-    }
-
-    public int getNights() {
+    public int getDuration() {
 //          need to add logic somewhere to make sure that number of nights cannot be negative,
 //          could be zero if booking cancelled
         return Period.between(startDate, endDate).getDays();
+    }
+
+    public void addDuration(int numberOfNights) {
+        this.endDate = this.startDate.plusDays(numberOfNights);
     }
 
 

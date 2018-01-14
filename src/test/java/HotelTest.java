@@ -111,17 +111,29 @@ public class HotelTest {
         assertEquals(false, hotel.getBookings().contains(hotel.selectBooking(2)));
     }
 
-    @Ignore("cancel not ready yet") @Test
-    public void canCancelBooking(){
-//        not the same as deleting a booking!
-//        cancel will keep guest data if permission has been given.
+
+
+    @Ignore("not ready yet") @Test
+    public void canAmendBookingGuests(){
         assertEquals(1, 1);
     }
 
     @Ignore("not ready yet") @Test
-    public void canAmendBooking(){
+    public void canAmendBookingRooms(){
         assertEquals(1, 1);
     }
+
+    @Ignore("not ready yet") @Test
+    public void canAmendBookingDates(){
+        assertEquals(1, 1);
+    }
+
+    @Ignore("not ready yet") @Test
+    public void canAmendBookingRequirements(){
+        assertEquals(1, 1);
+    }
+
+
 
 
     @Ignore("not ready yet") @Test
@@ -152,6 +164,17 @@ public class HotelTest {
     @Ignore("not ready yet") @Test
     public void canCheckOutGuests(){
         assertEquals(1, 1);
+    }
+
+
+    @Ignore("cancel not ready yet") @Test
+    public void canCancelBooking(){
+/*
+not the same as deleting a booking!
+cancel will keep guest data if permission has been given
+
+        assertEquals(1, 1);
+*/
     }
 
 }

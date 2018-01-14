@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -23,8 +24,8 @@ public class BookingTest {
         assertEquals(1, booking.getReference());
         assertEquals(0, booking.getGuests().size());
         assertEquals(0, booking.getRooms().size());
-        assertEquals(null, booking.getArrivalDate());
-        assertEquals(null, booking.getDepartureDate());
+        assertEquals(null, booking.getStartDate());
+        assertEquals(null, booking.getEndDate());
         assertEquals(0, booking.getRequirements().size());
         assertEquals(0.00, booking.getCost(), 0.001);
         assertEquals(false, booking.getActive());
@@ -96,6 +97,30 @@ public class BookingTest {
     public void bookingCanBeActivated(){
         booking.activate();
         assertEquals(true, booking.getActive());
+    }
+
+
+
+    @Test
+    public void bookingCanAddStartDate(){
+        booking.addStartDate("2018-01-14");
+        assertEquals("2018-01-14", booking.getStartDate().toString());
+
+    }
+
+    @Test
+    public void bookingCanAddEnd(){
+         booking.addEndDate("2018-01-15");
+         assertEquals("2018-01-15", booking.getEndDate().toString());
+
+    }
+
+    @Test
+    public void bookingReturnsLengthOfBooking(){
+        booking.addStartDate("2018-01-14");
+         booking.addEndDate("2018-01-14");
+         assertEquals(1, booking.getNights());
+
     }
 
 

@@ -1,14 +1,21 @@
-import java.sql.Date;
+
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
+
 
 public class Booking {
 
     private ArrayList<Guest> guests;
     private ArrayList<Room> rooms;
-    private Date arrivalDate;
-    private Date departureDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private ArrayList<Requirement> requirements;
     private double cost;
+//    to do: change active, completed etc to an enum called status.
     private boolean active;
     private boolean completed;
     private final int reference;
@@ -19,8 +26,8 @@ public class Booking {
         this.guests = new ArrayList<>();
         this.rooms = new ArrayList<>();
 //        this.room_allocation = new HashMap<Room, ArrayList<Guest>>();
-        this.arrivalDate = null;    //consider setting the default to 'today'
-        this.departureDate = null;  //consider setting the default to 'tomorrow'
+        this.startDate = null;    //consider setting the default to 'today'
+        this.endDate = null;  //consider setting the default to 'tomorrow'
         this.requirements = new ArrayList<>();
         this.cost = 0.00;
         this.active = false;
@@ -41,12 +48,12 @@ public class Booking {
         return this.rooms;
     }
 
-    public Date getArrivalDate() {
-        return this.arrivalDate;
+    public LocalDate getStartDate() {
+        return this.startDate;
     }
 
-    public Date getDepartureDate() {
-        return this.departureDate;
+    public LocalDate getEndDate() {
+        return this.endDate;
     }
 
     public double getCost() {
@@ -82,7 +89,6 @@ public class Booking {
     public void removeRoom(Bedroom room) {
         this.rooms.remove(room);
     }
-
 
 
     public void addRequirement(Requirement requirement) {
@@ -121,7 +127,28 @@ public class Booking {
         return this.rooms.size();
     }
 
+//    extract into helper class?
+    public LocalDate dateFormatter (String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd", Locale.ENGLISH);
+        return LocalDate.parse(date, formatter);
 
+    }
+
+    public void addStartDate(String startDate) {
+        LocalDate localDate = dateFormatter(startDate);
+        this.startDate = localDate;
+    }
+
+    public void addEndDate(String endDate) {
+        LocalDate localDate = dateFormatter(endDate);
+        this.endDate = localDate;
+    }
+
+    public int getNights() {
+//          need to add logic somewhere to make sure that number of nights cannot be negative,
+//          could be zero if booking cancelled
+        return Period.between(startDate, endDate).getDays();
+    }
 
 
 //    having trouble with dates: https://www.ntu.edu.sg/home/ehchua/programming/java/DateTimeCalendar.html

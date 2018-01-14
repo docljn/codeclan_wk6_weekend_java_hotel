@@ -87,6 +87,7 @@ public class Hotel {
     }
 
     public void deleteBooking(int reference) {
+        // you would only use this if a booking had not been fully added to the db or other storage system
         this.bookings.remove(selectBooking(reference));
     }
 }

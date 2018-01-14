@@ -85,4 +85,8 @@ public class Hotel {
             }
         } return null;
     }
+
+    public void deleteBooking(int reference) {
+        this.bookings.remove(selectBooking(reference));
+    }
 }

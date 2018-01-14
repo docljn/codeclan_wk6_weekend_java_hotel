@@ -104,7 +104,17 @@ public class HotelTest {
     }
 
     @Test
+    public void canDeleteBookingByReference(){
+        hotel.newBooking(1);
+        hotel.newBooking(2);
+        hotel.deleteBooking(2);
+        assertEquals(false, hotel.getBookings().contains(hotel.selectBooking(2)));
+    }
+
+    @Ignore("cancel not ready yet") @Test
     public void canCancelBooking(){
+//        not the same as deleting a booking!
+//        cancel will keep guest data if permission has been given.
         assertEquals(1, 1);
     }
 

@@ -27,6 +27,7 @@ public class BookingTest {
         assertEquals(null, booking.getDepartureDate());
         assertEquals(0, booking.getRequirements().size());
         assertEquals(0.00, booking.getCost(), 0.001);
+        assertEquals(false, booking.getActive());
         assertEquals(false, booking.getCompleted());
     }
 
@@ -89,6 +90,12 @@ public class BookingTest {
     public void bookingCanBeCompleted(){
         booking.complete();
         assertEquals(true, booking.getCompleted());
+    }
+
+    @Test
+    public void bookingCanBeActivated(){
+        booking.activate();
+        assertEquals(true, booking.getActive());
     }
 
 

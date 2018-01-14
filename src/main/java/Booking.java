@@ -9,6 +9,7 @@ public class Booking {
     private Date departureDate;
     private ArrayList<Requirement> requirements;
     private double cost;
+    private boolean active;
     private boolean completed;
     private final int reference;
 
@@ -22,6 +23,7 @@ public class Booking {
         this.departureDate = null;  //consider setting the default to 'tomorrow'
         this.requirements = new ArrayList<>();
         this.cost = 0.00;
+        this.active = false;
         this.completed = false;
     }
 
@@ -53,6 +55,10 @@ public class Booking {
 
     public ArrayList<Requirement> getRequirements() {
         return this.requirements;
+    }
+
+    public boolean getActive() {
+        return this.active;
     }
 
     public boolean getCompleted() {
@@ -94,14 +100,20 @@ public class Booking {
         }
     }
 
+    public void activate() {
+        this.active = true;
+    }
+
     public void complete() {
         /*
         add logic to check that:
+            booking is currently active (i.e. someone checked in)
             everything has been paid
-            all guests have checked out
+            all rooms/guests have been checked out
             departure date is today or past (or allow departure date to be changed?)
         */
         this.completed = true;
+        this.active = false;
 
     }
 

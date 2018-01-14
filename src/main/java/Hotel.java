@@ -60,10 +60,6 @@ public class Hotel {
         return count;
     }
 
-    public Booking newBooking(int reference) {
-        Booking booking = new Booking(reference);
-        return booking;
-    }
 
     public int getBedroomCount() {
         return getBedrooms().size();
@@ -75,5 +71,18 @@ public class Hotel {
 
     public int getFunctionRoomCount() {
         return getFunctionRooms().size();
+    }
+
+    public void newBooking(int reference) {
+        Booking booking = new Booking(reference);
+        this.bookings.add(booking);
+    }
+
+    public Booking selectBooking(int reference) {
+        for (Booking booking: getBookings()){
+            if (booking.getReference() == reference){
+                return booking;
+            }
+        } return null;
     }
 }

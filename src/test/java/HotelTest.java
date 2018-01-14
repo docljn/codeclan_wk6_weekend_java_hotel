@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 
 public class HotelTest {
 
@@ -89,14 +90,20 @@ public class HotelTest {
     }
 
 
-    @Ignore("not ready yet") @Test
+    @Test
     public void canCreateNewBooking(){
-        Booking newBooking = hotel.newBooking(2);
-//        WHAT AM I TESTING HERE!
-
+        hotel.newBooking(2);
+        assertEquals(1, hotel.getBookings().size());
     }
 
-    @Ignore("not ready yet") @Test
+    @Test
+    public void canReturnBookingByReference(){
+        hotel.newBooking(1);
+        hotel.newBooking(2);
+        assertNotNull(hotel.selectBooking(2));
+    }
+
+    @Test
     public void canCancelBooking(){
         assertEquals(1, 1);
     }

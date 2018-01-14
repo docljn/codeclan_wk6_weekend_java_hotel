@@ -67,19 +67,19 @@ public class HotelTest {
     @Test
     public void canAddBedroom(){
         hotel.addBedroom(doubleRoom);
-        assertEquals(2, hotel.getBedrooms().size());
+        assertEquals(2, hotel.getBedroomCount());
     }
 
     @Test
     public void canAddDiningRoom(){
         hotel.addDiningRoom(diningRoom);
-        assertEquals(2, hotel.getDiningRooms().size());
+        assertEquals(2, hotel.getDiningRoomCount());
     }
 
     @Test
     public void canAddFunctionRoom(){
         hotel.addFunctionRoom(functionRoom);
-        assertEquals(2, hotel.getFunctionRooms().size());
+        assertEquals(2, hotel.getFunctionRoomCount());
     }
 
     @Test
@@ -91,7 +91,9 @@ public class HotelTest {
 
     @Ignore("not ready yet") @Test
     public void canCreateNewBooking(){
-        assertEquals(1, 1);
+        Booking newBooking = hotel.newBooking(2);
+//        WHAT AM I TESTING HERE!
+
     }
 
     @Ignore("not ready yet") @Test

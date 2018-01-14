@@ -59,4 +59,21 @@ public class Hotel {
         }
         return count;
     }
+
+    public Booking newBooking(int reference) {
+        Booking booking = new Booking(reference);
+        return booking;
+    }
+
+    public int getBedroomCount() {
+        return getBedrooms().size();
+    }
+
+    public int getDiningRoomCount() {
+        return getDiningRooms().size();
+    }
+
+    public int getFunctionRoomCount() {
+        return getFunctionRooms().size();
+    }
 }

@@ -117,6 +117,16 @@ public class Hotel {
         for (Booking booking: bookings) {
             if (booking.includesGuest(guest)){
                 booking.activate();
+//                add something here to allocate guests to particular rooms?
+            }
+        }
+    }
+
+    public void checkOut(Guest guest) {
+//        assuming that a guest is only associated with one booking at this stage!
+        for (Booking booking: bookings) {
+            if (booking.includesGuest(guest)){  // need to add logic to check that everything has been paid etc.
+                booking.complete();
             }
         }
     }

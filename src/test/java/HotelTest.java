@@ -148,9 +148,14 @@ public class HotelTest {
         assertEquals(true, booking.getActive());
     }
 
+
     @Ignore("not ready yet") @Test
     public void canCheckOutGuests(){
-        assertEquals(1, 1);
+        Booking booking = hotel.newBooking(1);
+        booking.add(guest);
+        hotel.checkIn(guest);
+        hotel.checkOut(guest);
+        assertEquals(true, booking.getCompleted());
     }
 
 

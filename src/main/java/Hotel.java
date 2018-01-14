@@ -92,6 +92,14 @@ public class Hotel {
         this.bookings.remove(selectBooking(reference));
     }
 
+    public ArrayList<Room> getAllRooms() {
+        ArrayList<Room> rooms = new ArrayList<>();
+        rooms.addAll(bedrooms);
+        rooms.addAll(diningRooms);
+        rooms.addAll(functionRooms);
+        return rooms;
+    }
+
     public ArrayList<Room> getOccupiedRooms() {
     //     maybe add logic to ignore any bookings which have been marked as cancelled
     //     also need to think about taking in a date field when searching, if this was actually going to work!
@@ -104,9 +112,7 @@ public class Hotel {
 
     public ArrayList<Room> getVacantRooms() {
         ArrayList<Room> vacantRooms = new ArrayList<>();
-        vacantRooms.addAll(bedrooms);
-        vacantRooms.addAll(diningRooms);
-        vacantRooms.addAll(functionRooms);
+        vacantRooms.addAll(getAllRooms());
         for (Room room: getOccupiedRooms()) {
                 vacantRooms.remove(room);
             }
@@ -127,7 +133,10 @@ public class Hotel {
         for (Booking booking: bookings) {
             if (booking.includesGuest(guest)){  // need to add logic to check that everything has been paid etc.
                 booking.complete();
+                // also need to add guest data to archive or purge list depending on data protection permissions
             }
         }
     }
+
+
 }

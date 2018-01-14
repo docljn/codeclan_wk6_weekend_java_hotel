@@ -122,6 +122,11 @@ public class HotelTest {
     }
 
     @Test
+    public void canGetAllRooms(){
+        assertEquals(3, hotel.getAllRooms().size());
+    }
+
+    @Test
     public void canGetOccupiedRooms(){
         Booking booking = hotel.newBooking(1);
         booking.add(doubleRoom);
@@ -145,17 +150,17 @@ public class HotelTest {
         Booking booking = hotel.newBooking(1);
         booking.add(guest);
         hotel.checkIn(guest);
-        assertEquals(true, booking.getActive());
+        assertEquals(BookingStatus.ACTIVE, booking.getStatus());
     }
 
 
-    @Ignore("not ready yet") @Test
+    @Test
     public void canCheckOutGuests(){
         Booking booking = hotel.newBooking(1);
         booking.add(guest);
         hotel.checkIn(guest);
         hotel.checkOut(guest);
-        assertEquals(true, booking.getCompleted());
+        assertEquals(BookingStatus.COMPLETED, booking.getStatus());
     }
 
 

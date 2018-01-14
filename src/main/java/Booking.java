@@ -1,9 +1,7 @@
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 
 
 public class Booking {
@@ -15,9 +13,11 @@ public class Booking {
     private ArrayList<Requirement> requirements;
     private double cost;
 //    to do: change active, completed etc to an enum called status.
+    private Enum<BookingStatus> status;
 
     private boolean active;
     private boolean completed;
+
     private final int reference;
 
 
@@ -30,8 +30,7 @@ public class Booking {
         this.endDate = null;  //consider setting the default to 'tomorrow'
         this.requirements = new ArrayList<>();
         this.cost = 0.00;
-        this.active = false;
-        this.completed = false;
+        this.status = BookingStatus.CREATED;
     }
 
 //    how to get a current date: https://stackoverflow.com/questions/18257648/get-the-current-date-in-java-sql-date-format
@@ -68,12 +67,8 @@ public class Booking {
         return this.requirements;
     }
 
-    public boolean getActive() {
-        return this.active;
-    }
-
-    public boolean getCompleted() {
-        return this.completed;
+    public Enum<BookingStatus> getStatus() {
+        return this.status;
     }
 
 
@@ -111,19 +106,20 @@ public class Booking {
     }
 
     public void activate() {
-        this.active = true;
+        this.status = BookingStatus.ACTIVE;
     }
 
     public void complete() {
+//        if (this.status == BookingStatus.ACTIVE){
+            this.status = BookingStatus.COMPLETED;
+//        }
         /*
         add logic to check that:
-            booking is currently active (i.e. someone checked in)
+            the booking was checked in
             everything has been paid
             all rooms/guests have been checked out
             departure date is today or past (or allow departure date to be changed?)
         */
-        this.completed = true;
-        this.active = false;
 
     }
 
@@ -131,11 +127,6 @@ public class Booking {
         return this.rooms.size();
     }
 
-    //    extract into helper class?
-    // https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
-//    public DateTimeFormatter dateFormatter (){
-//        return DateTimeFormatter.ofPattern("uuuu-MM-dd", Locale.ENGLISH);
-//    }
 
 
     public void add(String startDate) {
@@ -157,7 +148,4 @@ public class Booking {
     }
 
 
-//    having trouble with dates: https://www.ntu.edu.sg/home/ehchua/programming/java/DateTimeCalendar.html
-
-//    to convert a string to a date: date = valueOf("yyyy-mm-dd")
 }

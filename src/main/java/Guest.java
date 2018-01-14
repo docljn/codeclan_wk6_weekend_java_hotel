@@ -4,6 +4,7 @@ public class Guest {
     Boolean dataPermission;
 
     public Guest(String name, boolean dataPermission) {
+//        eventually will want a guest id rather than just a name....
         this.name = name;
         this.dataPermission = dataPermission;
     }

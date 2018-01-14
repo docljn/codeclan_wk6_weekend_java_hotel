@@ -90,4 +90,31 @@ public class Hotel {
         // you would only use this if a booking had not been fully added to the db or other storage system
         this.bookings.remove(selectBooking(reference));
     }
+
+    public ArrayList<Room> getOccupiedRooms() {
+        ArrayList<Room> occupiedRooms = new ArrayList<>();
+        for (Booking booking: getBookings()){
+            for (Room room: booking.getRooms()) {
+                occupiedRooms.add(room);
+            }
+        }
+        return occupiedRooms;
+    }
+
+    public ArrayList<Room> getVacantRooms() {
+        ArrayList<Room> vacantRooms = new ArrayList<>();
+        for (Room room: bedrooms) {
+            vacantRooms.add(room);
+        }
+        for (Room room: diningRooms) {
+            vacantRooms.add(room);
+        }
+        for (Room room: functionRooms) {
+            vacantRooms.add(room);
+        }
+        for (Room room: getOccupiedRooms()) {
+                vacantRooms.remove(room);
+            }
+        return vacantRooms;
+    }
 }

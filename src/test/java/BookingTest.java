@@ -20,16 +20,20 @@ public class BookingTest {
 
 
     @Test
-    public void bookingStartsEmptyWithReference(){
+    public void bookingStartsWithReference(){
         assertEquals(1, booking.getReference());
-        assertEquals(0, booking.getGuests().size());
-        assertEquals(0, booking.getRooms().size());
         assertEquals(null, booking.getStartDate());
         assertEquals(null, booking.getEndDate());
         assertEquals(0, booking.getRequirements().size());
         assertEquals(0.00, booking.getCost(), 0.001);
         assertEquals(false, booking.getActive());
         assertEquals(false, booking.getCompleted());
+    }
+
+    @Test
+    public void bookingReturnsGuestCount(){
+        assertEquals(0, booking.getGuestCount());
+
     }
 
     @Test
@@ -43,7 +47,7 @@ public class BookingTest {
     public void bookingRemovesGuest(){
         booking.add(guest);
         booking.removeGuest(guest);
-        assertEquals(0, booking.getGuests().size());
+        assertEquals(0, booking.getGuestCount());
     }
 
     @Test
@@ -59,6 +63,7 @@ public class BookingTest {
         booking.removeRoom(room);
         assertEquals(0, booking.getRoomCount());
     }
+
 
     @Test
     public void bookingAddsRequirement(){
@@ -123,6 +128,14 @@ public class BookingTest {
          assertEquals(2, booking.getDuration());
 
     }
+
+
+//    @Test
+//    public void bookingReturnsRoomCountByType(){
+//        booking.add(room);
+//        assertEquals(1, booking.getRoomTypeCount(BedroomType.SINGLE));
+//    }
+
 
 
 

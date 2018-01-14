@@ -43,6 +43,10 @@ public class Booking {
         return this.guests;
     }
 
+    public int getGuestCount() {
+        return this.guests.size();
+    }
+
     public ArrayList<Room> getRooms() {
         return this.rooms;
     }
@@ -126,14 +130,15 @@ public class Booking {
         return this.rooms.size();
     }
 
-//    extract into helper class?
+    //    extract into helper class?
     // https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
-    public DateTimeFormatter dateFormatter (){
-        return DateTimeFormatter.ofPattern("uuuu-MM-dd", Locale.ENGLISH);
-    }
+//    public DateTimeFormatter dateFormatter (){
+//        return DateTimeFormatter.ofPattern("uuuu-MM-dd", Locale.ENGLISH);
+//    }
+
 
     public void add(String startDate) {
-        this.startDate = LocalDate.parse(startDate, dateFormatter());
+        this.startDate = LocalDate.parse(startDate, Formatting.dateFormatter());
     }
 
     public int getDuration() {
@@ -145,6 +150,8 @@ public class Booking {
     public void add(int numberOfNights) {
         this.endDate = this.startDate.plusDays(numberOfNights);
     }
+
+
 
 
 //    having trouble with dates: https://www.ntu.edu.sg/home/ehchua/programming/java/DateTimeCalendar.html

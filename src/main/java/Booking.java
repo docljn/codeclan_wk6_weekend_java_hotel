@@ -1,5 +1,4 @@
 
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -128,20 +127,16 @@ public class Booking {
     }
 
 //    extract into helper class?
-    public LocalDate dateFormatter (String date){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd", Locale.ENGLISH);
-        return LocalDate.parse(date, formatter);
-
+    public DateTimeFormatter dateFormatter (){
+        return DateTimeFormatter.ofPattern("uuuu-MM-dd", Locale.ENGLISH);
     }
 
     public void addStartDate(String startDate) {
-        LocalDate localDate = dateFormatter(startDate);
-        this.startDate = localDate;
+        this.startDate = LocalDate.parse(startDate, dateFormatter());
     }
 
     public void addEndDate(String endDate) {
-        LocalDate localDate = dateFormatter(endDate);
-        this.endDate = localDate;
+        this.endDate = LocalDate.parse(endDate, dateFormatter());
     }
 
     public int getNights() {

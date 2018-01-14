@@ -118,7 +118,7 @@ public class BookingTest {
     @Test
     public void bookingReturnsLengthOfBooking(){
         booking.addStartDate("2018-01-14");
-         booking.addEndDate("2018-01-14");
+         booking.addEndDate("2018-01-15");
          assertEquals(1, booking.getNights());
 
     }

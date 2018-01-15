@@ -119,6 +119,14 @@ public class Hotel {
         return vacantRooms;
     }
 
+    public ArrayList<Room> getVacantBedrooms() {
+        ArrayList<Room> vacantBedrooms = new ArrayList<>(this.bedrooms);
+        for (Room room: getOccupiedRooms()) {
+            vacantBedrooms.remove(room);
+        }
+        return vacantBedrooms;
+    }
+
     public void checkIn(Guest guest) {
         for (Booking booking: bookings) {
             if (booking.includesGuest(guest)){
@@ -137,6 +145,5 @@ public class Hotel {
             }
         }
     }
-
 
 }

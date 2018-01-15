@@ -103,6 +103,13 @@ public class BookingTest {
         assertEquals(BookingStatus.ACTIVE, booking.getStatus());
     }
 
+    @Test
+    public void bookingCanBeCancelled(){
+        booking.cancel();
+        assertEquals(BookingStatus.CANCELLED, booking.getStatus());
+
+    }
+
 
 
     @Test

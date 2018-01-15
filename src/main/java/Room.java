@@ -1,5 +1,10 @@
 public class Room {
 
+    /*
+    If you are willing to have bespoke setup per hotel,
+    you can use an ENUM for the rooms, with the values being e.g. capacity, name, type, etc.
+    */
+
 
     private double price;
     private boolean accessible;
@@ -17,7 +22,6 @@ public class Room {
     public String getName() {
         return this.name;
     }
-
 
     public boolean getChargeable() {
         return this.chargeable;

@@ -12,12 +12,7 @@ public class Booking {
     private LocalDate endDate;
     private ArrayList<Requirement> requirements;
     private double cost;
-//    to do: change active, completed etc to an enum called status.
     private Enum<BookingStatus> status;
-
-    private boolean active;
-    private boolean completed;
-
     private final int reference;
 
 
@@ -25,15 +20,17 @@ public class Booking {
         this.reference = reference;
         this.guests = new ArrayList<>();
         this.rooms = new ArrayList<>();
-//        this.room_allocation = new HashMap<Room, ArrayList<Guest>>();
+        /*
+        consider
+        this.room_allocation = new HashMap<Room, ArrayList<Guest>>();
+        would give a way to show which guests were in which rooms
+        */
         this.startDate = null;    //consider setting the default to 'today'
         this.endDate = null;  //consider setting the default to 'tomorrow'
         this.requirements = new ArrayList<>();
         this.cost = 0.00;
         this.status = BookingStatus.CREATED;
     }
-
-//    how to get a current date: https://stackoverflow.com/questions/18257648/get-the-current-date-in-java-sql-date-format
 
     public int getReference() {
         return this.reference;
@@ -120,13 +117,15 @@ public class Booking {
             all rooms/guests have been checked out
             departure date is today or past (or allow departure date to be changed?)
         */
+    }
 
+    public void cancel() {
+        this.status = BookingStatus.CANCELLED;
     }
 
     public int getRoomCount() {
         return this.rooms.size();
     }
-
 
 
     public void add(String startDate) {
@@ -146,6 +145,7 @@ public class Booking {
     public boolean includesGuest(Guest guest) {
         return this.guests.contains(guest);
     }
+
 
 
 }

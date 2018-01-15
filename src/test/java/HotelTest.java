@@ -144,15 +144,21 @@ public class HotelTest {
         assertEquals(diningRoom, vacant.get(0));
     }
 
+    @Test
+    public void canGetVacantBedRooms(){
+        Booking booking = hotel.newBooking(1);
+        booking.add(doubleRoom);
+        ArrayList<Room> vacant = hotel.getVacantBedrooms();
+        assertEquals(singleRoom, vacant.get(0));
+    }
 
     @Test
     public void canCheckInGuests(){
         Booking booking = hotel.newBooking(1);
         booking.add(guest);
-        hotel.checkIn(guest);
+        hotel.checkIn(guest);  //eventually this should affect the hashmap linking guests and rooms?
         assertEquals(BookingStatus.ACTIVE, booking.getStatus());
     }
-
 
     @Test
     public void canCheckOutGuests(){
@@ -164,22 +170,17 @@ public class HotelTest {
     }
 
 
-    @Ignore("not ready yet") @Test
+    @Ignore("booking needs vacant room: not ready yet") @Test
     public void newBookingRequiresVacantRoom(){
         assertEquals(1, 1);
     }
 
-
-
-
-    @Ignore("cancel not ready yet") @Test
+    @Ignore("cancel: not ready yet") @Test
     public void canCancelBooking(){
-/*
-not the same as deleting a booking!
-cancel will keep guest data if permission has been given
-
-        assertEquals(1, 1);
-*/
+        /*
+        not the same as deleting a booking!
+        cancel will keep guest data if permission has been given
+        */
     }
 
 }

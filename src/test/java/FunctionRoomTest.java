@@ -9,7 +9,7 @@ public class FunctionRoomTest {
 
     @Before
     public void before(){
-        functionRoom = new FunctionRoom("Large",  true, true, 100, 400);
+        functionRoom = new FunctionRoom("Large",  true, true, 400.00, 100);
     }
 
     @Test
